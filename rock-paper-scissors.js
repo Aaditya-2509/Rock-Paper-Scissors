@@ -25,7 +25,7 @@ function autoPlay(){
         //interval id changes every time so not declared with the const 
         const playerMove= pickComputerMove();
         playGame(playerMove);
-    },1000);
+    },2000);
     isAutoPlaying = true;
     }
     else{
@@ -34,6 +34,22 @@ function autoPlay(){
         isAutoPlaying = false;
     }
 }
+
+document.querySelector('.js-rock-button').addEventListener('click', () =>  playGame('rock'));
+document.querySelector('.js-paper-button').addEventListener('click', () =>  playGame('paper'));
+document.querySelector('.js-scissors-button').addEventListener('click', () =>  playGame('scissors'));
+
+document.body.addEventListener('keydown', (event) => {
+    if(event.key==='r'){
+        playGame('rock');
+    }
+    if(event.key==='p'){
+        playGame('paper');
+    }
+    if(event.key==='s'){
+        playGame('scissors');
+    }
+})
 
 
 function playGame(playerMove) {
